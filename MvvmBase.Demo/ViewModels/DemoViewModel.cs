@@ -1,4 +1,5 @@
-﻿using MvvmBase.Core.ViewModels;
+﻿using MvvmBase.Core.Commands;
+using MvvmBase.Core.ViewModels;
 
 namespace MvvmBase.Demo.ViewModels
 {
@@ -12,9 +13,12 @@ namespace MvvmBase.Demo.ViewModels
             set { SetField(ref _message, value); }
         }
 
+        public RelayCommand ButtonClickedCommand { get; init; }
+
         public DemoViewModel()
         {
             Message = "It works!";
+            ButtonClickedCommand = new RelayCommand(() => Message = "Clicked!");
         }
     }
 }
